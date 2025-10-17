@@ -71,7 +71,6 @@ BOARD_MKBOOTIMG_ARGS:= \
 --dtb_offset=0x01f00000 \
 --kernel_offset=0x00008000 \
 --ramdisk_offset=0x02000000 \
---tags_offset=0x01e00000 \
 --header_version=$(BOARD_BOOTIMG_HEADER_VERSION) \
 --dtb=$(TARGET_PREBUILT_DTB)
 BOARD_ROOT_EXTRA_FOLDERS := \
@@ -87,6 +86,9 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     metadata \
     keydata \
     keyrefuge
+
+# MKBOOTIMG
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
