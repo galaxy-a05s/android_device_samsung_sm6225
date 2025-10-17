@@ -34,7 +34,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.input.classifier@1.0-service \
     android.hardware.input.processor@1.0-service \
-    android.hardware.input.processor@1.0-service.rc
+    android.hardware.input.processor@1.0-service.rc \
+    touch_init.sh
 
 # Include touch firmware in recovery
 PRODUCT_COPY_FILES += \
