@@ -144,7 +144,6 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_USE_EXTERNAL_STORAGE := true
@@ -169,6 +168,22 @@ TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone26/temp"
 # Modules 
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules) $(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
+
+# Enable touch in recovery
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TOUCH_IN_RECOVERY := true
+
+# Include touch modules
+TARGET_RECOVERY_DEVICE_MODULES += \
+    hx83112f.ko \
+    icnl9922c.ko
+
+RECOVERY_KERNEL_MODULES += \
+    $(TARGET_RECOVERY_DEVICE_MODULES)
+
+# Touchscreen specific
+TW_IGNORE_MAJOR_AXIS_0 := true
+TW_NO_SCREEN_BLANK := true
 
 # Logging
 TARGET_USES_LOGD := true
