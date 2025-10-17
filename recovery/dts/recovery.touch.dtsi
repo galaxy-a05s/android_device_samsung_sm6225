@@ -1,15 +1,5 @@
 {
-    fragment@touch {
-        target-path = "/";
-        __overlay__ {
-            touch_bus_booster {
-                compatible = "mediatek,touch_bus_booster";
-                status = "okay";
-            };
-        };
-    };
-
-    fragment@i2c_touch {
+     fragment@i2c_touch {
         target = <&i2c2>;
         __overlay__ {
             #address-cells = <1>;
