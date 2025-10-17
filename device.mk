@@ -32,9 +32,6 @@ PRODUCT_PACKAGES += \
 
 # Add these lines to ensure touchscreen modules are included
 PRODUCT_PACKAGES += \
-    android.hardware.input.classifier@1.0-service \
-    android.hardware.input.processor@1.0-service \
-    android.hardware.input.processor@1.0-service.rc \
     touch_init.sh
 
 # Include touch firmware in recovery
