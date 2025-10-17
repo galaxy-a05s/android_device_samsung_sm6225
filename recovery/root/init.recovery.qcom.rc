@@ -42,8 +42,18 @@ on property:ro.boot.usbcontroller=*
     wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
     write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
     wait /sys/class/udc/${ro.boot.usbcontroller} 1
+ 
+    
+on boot
+    # Set permissions for touch interfaces
+    chmod 0666 /sys/class/touchscreen/*/ic_ver
+    chmod 0666 /sys/class/touchscreen/*/reset
+    chmod 0666 /sys/class/touchscreen/*/irq
+    chmod 0666 /sys/class/touchscreen/*/debug
+    chmod 0660 /dev/input/event*
+    chown system input /dev/input/event*
 
-on boot 
+    # Health
     start health-hal-2-1
 
 on fs
@@ -60,12 +70,16 @@ service touch_init /system/bin/sh /sbin/touch_init.sh
     user root
     group root
     oneshot
+    seclabel u:r:recovery:s0
 
-on boot
-    # Set permissions for touch interfaces
-    chmod 0666 /sys/class/touchscreen/*/ic_ver
-    chmod 0666 /sys/class/touchscreen/*/reset
-    chmod 0666 /sys/class/touchscreen/*/irq
-    chmod 0666 /sys/class/touchscreen/*/debug
-    chmod 0660 /dev/input/event*
-    chown system input /dev/input/event*
+# Debug service
+service touch_debug /system/bin/sh /sbin/tuch_debug.sh
+    class debug
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+on property:debug.touch=1
+    start touch_debug
