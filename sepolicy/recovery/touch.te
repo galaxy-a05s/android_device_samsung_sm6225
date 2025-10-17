@@ -1,0 +1,16 @@
+# Allow recovery to access touchscreen
+allow recovery sysfs:file { open read write getattr };
+allow recovery input_device:chr_file { open read write ioctl };
+allow recovery vendor_touchscreen_device:dir search;
+allow recovery vendor_touchscreen_device:file { open read write };
+
+# Himax specific
+allow recovery himax_ts:dir search;
+allow recovery himax_ts:file { open read write };
+
+# Chipone specific
+allow recovery chipone_ts:dir search;
+allow recovery chipone_ts:file { open read write };
+
+# GPIO access
+allow recovery gpio_device:chr_file { open read write };
