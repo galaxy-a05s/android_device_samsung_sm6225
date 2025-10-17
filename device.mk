@@ -39,12 +39,12 @@ PRODUCT_PACKAGES += \
 
 # Include touch firmware in recovery
 PRODUCT_COPY_FILES += \
-    vendor/firmware/touchscreen/hx83112f_BOE_FW.bin:recovery/root/vendor/firmware/hx83112f_BOE_FW.bin \
-    vendor/firmware/touchscreen/hx83112f_BOE_mp.bin:recovery/root/vendor/firmware/hx83112f_BOE_mp.bin \
-    vendor/firmwar\/touchscreen/hx83112f_TXD_FW.bin:recovery/root/vendor/firmware/hx83112f_TXD_FW.bin \
-    vendor/firmware/touchscreen/hx83112f_TXD_mp.bin:recovery/root/vendor/firmware/hx83112f_TXD_mp.bin \
-    vendor/firmware/touchscreen/chipone_firmware.bin:recovery/root/vendor/firmware/chipone_firmware.bin \
-    vendor/firmware/touchscreen/chipone_limit.bin:recovery/root/vendor/firmware/chipone_limit.bin
+    $(DEVICE_PATH)/vendor/firmware/touchscreen/hx83112f_BOE_FW.bin:recovery/root/vendor/firmware/hx83112f_BOE_FW.bin \
+    $(DEVICE_PATH)vendor/firmware/touchscreen/hx83112f_BOE_mp.bin:recovery/root/vendor/firmware/hx83112f_BOE_mp.bin \
+    $(DEVICE_PATH)vendor/firmwar\/touchscreen/hx83112f_TXD_FW.bin:recovery/root/vendor/firmware/hx83112f_TXD_FW.bin \
+    $(DEVICE_PATH)vendor/firmware/touchscreen/hx83112f_TXD_mp.bin:recovery/root/vendor/firmware/hx83112f_TXD_mp.bin \
+    $(DEVICE_PATH)vendor/firmware/touchscreen/chipone_firmware.bin:recovery/root/vendor/firmware/chipone_firmware.bin \
+    $(DEVICE_PATH)vendor/firmware/touchscreen/chipone_limit.bin:recovery/root/vendor/firmware/chipone_limit.bin
 
 # QCOM
 PRODUCT_PACKAGES += \
