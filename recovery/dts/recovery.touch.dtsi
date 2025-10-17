@@ -1,0 +1,41 @@
+{
+    fragment@touch {
+        target-path = "/";
+        __overlay__ {
+            touch_bus_booster {
+                compatible = "mediatek,touch_bus_booster";
+                status = "okay";
+            };
+        };
+    };
+
+    fragment@i2c_touch {
+        target = <&i2c2>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            himax_ts@48 {
+                compatible = "himax,hxcommon";
+                reg = <0x48>;
+                status = "okay";
+                himax,panel-coords = <0 720 0 1600>;
+                himax,display-coords = <0 720 0 1600>;
+                himax,irq-gpio = <&pio 9 0x2008>;
+                himax,rst-gpio = <&pio 8 0x00>;
+                report_type = <1>;
+            };
+
+            chipone_tddi@40 {
+                compatible = "chipone,icn85xx";
+                reg = <0x40>;
+                status = "okay";
+                chipone,irq-gpio = <&pio 9 0x2008>;
+                chipone,rst-gpio = <&pio 8 0x00>;
+                chipone,x-res = <720>;
+                chipone,y-res = <1600>;
+            };
+        };
+    };
+};
