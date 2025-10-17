@@ -28,7 +28,7 @@
             };
 
             chipone_tddi@40 {
-                compatible = "chipone,icn85xx";
+                compatible = "chipone,icnl9922c";
                 reg = <0x40>;
                 status = "okay";
                 chipone,irq-gpio = <&pio 9 0x2008>;
