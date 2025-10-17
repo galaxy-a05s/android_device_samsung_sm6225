@@ -33,13 +33,14 @@ PRODUCT_PACKAGES += \
 # Add these lines to ensure touchscreen modules are included
 PRODUCT_PACKAGES += \
     android.hardware.input.classifier@1.0-service \
-    android.hardware.input.processor@1.0-service
+    android.hardware.input.processor@1.0-service \
+    android.hardware.input.processor@1.0-service.rc
 
 # Include touch firmware in recovery
 PRODUCT_COPY_FILES += \
     vendor/firmware/touchscreen/hx83112f_BOE_FW.bin:recovery/root/vendor/firmware/hx83112f_BOE_FW.bin \
     vendor/firmware/touchscreen/hx83112f_BOE_mp.bin:recovery/root/vendor/firmware/hx83112f_BOE_mp.bin \
-    vendor/firmware/touchscreen/hx83112f_TXD_FW.bin:recovery/root/vendor/firmware/hx83112f_TXD_FW.bin \
+    vendor/firmwar\/touchscreen/hx83112f_TXD_FW.bin:recovery/root/vendor/firmware/hx83112f_TXD_FW.bin \
     vendor/firmware/touchscreen/hx83112f_TXD_mp.bin:recovery/root/vendor/firmware/hx83112f_TXD_mp.bin \
     vendor/firmware/touchscreen/chipone_firmware.bin:recovery/root/vendor/firmware/chipone_firmware.bin \
     vendor/firmware/touchscreen/chipone_limit.bin:recovery/root/vendor/firmware/chipone_limit.bin
