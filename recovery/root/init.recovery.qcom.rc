@@ -27,6 +27,10 @@
 import /init.recovery.qcom_decrypt.rc
 import /init.recovery.samsung.rc 
 
+on early-init
+    # Touchscreen initialization
+    start touch_init
+
 on init
     setprop sys.usb.configfs 1
     setprop prepdecrypt.setpatch true
@@ -51,3 +55,17 @@ on fs
 
     export ANDROID_ROOT /system_root
 
+service touch_init /system/bin/sh /sbin/touch_init.sh
+    class main
+    user root
+    group root
+    oneshot
+
+on boot
+    # Set permissions for touch interfaces
+    chmod 0666 /sys/class/touchscreen/*/ic_ver
+    chmod 0666 /sys/class/touchscreen/*/reset
+    chmod 0666 /sys/class/touchscreen/*/irq
+    chmod 0666 /sys/class/touchscreen/*/debug
+    chmod 0660 /dev/input/event*
+    chown system input /dev/input/event*
