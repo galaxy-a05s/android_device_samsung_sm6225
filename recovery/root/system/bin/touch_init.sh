@@ -16,11 +16,11 @@ elif [ -d /sys/class/touchscreen/chipone-tddi ]; then
     sleep 0.1
     echo 0 > /sys/class/touchscreen/chipone-tddi/reset
     sleep 0.5
-elif [ -d /sys/class/touchscreen/icn85xx ]; then
+elif [ -d /sys/class/touchscreen/icnl9922c ]; then
     echo "Initializing ICN85xx touchscreen"
-    echo 1 > /sys/class/touchscreen/icn85xx/reset
+    echo 1 > /sys/class/touchscreen/icnl9922c/reset
     sleep 0.1
-    echo 0 > /sys/class/touchscreen/icn85xx/reset
+    echo 0 > /sys/class/touchscreen/icnl9922c/reset
     sleep 0.5
 fi
 
